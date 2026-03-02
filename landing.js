@@ -331,9 +331,14 @@ async function addBusyRoads(map) {
 // intercept sidebar route-button clicks to show an in-page panel instead of
 // navigating to routeN.html.  if routes haven't finished loading yet the
 // click falls through to the normal href so the user still gets the info.
+// Set USE_ROUTE_PANEL to true if you'd prefer an in-page panel instead of
+// navigating.  Defaults to false so links act normally.
+const USE_ROUTE_PANEL = false;
+
 function setupRouteButtons() {
   document.querySelectorAll('.sidebar .route-btn[data-index]').forEach(btn => {
     btn.addEventListener('click', e => {
+      if (!USE_ROUTE_PANEL) return; // let the anchor behave normally
       if (!cachedRoutes) return; // routes not loaded yet – allow normal navigation
       e.preventDefault();
       const idx = parseInt(btn.getAttribute('data-index'), 10);
@@ -540,6 +545,7 @@ function setupOverviewButton() {
   const overviewBtn = document.querySelector('.sidebar .overview-btn');
   if (overviewBtn) {
     overviewBtn.addEventListener('click', e => {
+      if (!USE_ROUTE_PANEL) return; // let link work normally
       e.preventDefault();
       // hide route panel if open
       const routePanel = document.getElementById('route-panel');
