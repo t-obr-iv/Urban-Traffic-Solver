@@ -1,5 +1,7 @@
 # megahackathon26
+
 # Urban Traffic Solver
+
 ### Authors: Thomas O'Brien, Ian Oliva, Simeon Chenchev
 
 Our project for MEGA Hackathon 2026:
@@ -15,11 +17,15 @@ Finally, after compiling data for several hundred routes, we chose 10 of the hig
 Read more in the Overview page on our website: http://172.104.10.6/
 
 # Technical Specifications
+
 Correlation measured: does higher flow on the shortest path predict better agreement between the two routes?
 
-### equirements:
+### Requirements:
+
     pip install requests numpy pandas python-dotenv
 
-### .env file:*
+### .env file:\*
+
     TOMTOM_API_KEY=your_key_here
-###### *In order to get data, input a TomTom API key into a file called .env anywhere in this directory
+
+###### \*In order to get data, input a TomTom API key into a file called .env anywhere in this directory
